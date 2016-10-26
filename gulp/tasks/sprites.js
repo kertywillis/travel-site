@@ -35,7 +35,10 @@ gulp.task('copySpriteGraphic', ['createSprite'], function() {
 });
 
 gulp.task('copySpriteCSS', ['createSprite'], function() {
-	return del(['./app/temp/sprite/', './app/assets/images/sprites']);
+	return gulp.src('./app/temp/sprite/css/*.css')
+		.pipe(rename('_sprite.css'))
+		.pipe(gulp.dest('./app/assets/styles/modules'));
+	// return del(['./app/temp/sprite/', './app/assets/images/sprites']);
 });
 
 // On nettoie le dossier

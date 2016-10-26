@@ -11,7 +11,8 @@ gulp.task("watch", function() {
 
 	browserSync.init({
 		server: {
-			baseDir: "app"
+			baseDir: "app",
+			notify: false
 		}
 	});
 
@@ -22,4 +23,13 @@ gulp.task("watch", function() {
 	watch("./app/assets/styles/**/*.css",function() {
 		gulp.start('cssInject');
 	});
+
+	watch("./app/assets/scripts/**/*.js",function() {
+		gulp.start('scriptsRefresh');
+	});
 });
+
+
+gulp.task("scriptsRefresh", ["scripts"], function() {
+	browserSync.reload();
+})
