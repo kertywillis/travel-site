@@ -1,12 +1,15 @@
 // Tout d'abord, on définit un objet pour dire quoi faire
 module.exports = {
 	// Dis quel fichier il doit regardé pour créer son bundle
-	entry : "./app/assets/scripts/app.js",
+	entry : {
+		App: "./app/assets/scripts/App.js",
+		Vendor: "./app/assets/scripts/Vendor.js"
+	},
 
 	// On dit à Webpack où il doit sortir le projet
 	output : {
 		path : "./app/temp/scripts",
-		filename : "app.js"
+		filename : "[name].js"
 	},
 
 	module : {
